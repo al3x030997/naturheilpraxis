@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naturheilpraxis Jolanta Kowollik · Bobenheim-Roxheim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #4e7d5e;
+      --green-dark:  #3a6047;
+      --green-deep:  #243d2d;
+      --gold:        #c49a3c;
+      --gold-light:  #d4ad52;
+      --cream:       #f5fbf6;
+      --cream-dark:  #e4f2e8;
+      --white:       #ffffff;
+      --text:        #1a2520;
+      --text-mid:    #3d4a42;
+      --text-muted:  #6a7870;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.75;
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      z-index: 100;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(78, 125, 94, 0.18);
+      padding: 0 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon { width: 34px; height: 34px; }
+
+    .nav-logo-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .nav-logo-text small {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    .nav-cta {
+      background: var(--green) !important;
+      color: white !important;
+      padding: 0.48rem 1.4rem !important;
+      border-radius: 2rem;
+      letter-spacing: 0.04em !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover { background: var(--green-dark) !important; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 64px);
+      margin-top: 64px;
+      background: var(--cream);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 4rem 8vw;
+    }
+
+    .hero-bg-tree {
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 92%;
+      width: auto;
+      opacity: 0.15;
+      z-index: 0;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+      filter: sepia(0.8) hue-rotate(112deg) saturate(2) brightness(0.6);
+    }
+
+    .hero-bg-quote {
+      position: absolute;
+      right: calc(46vh - 2%);
+      top: 50%;
+      transform: translate(50%, -50%);
+      max-width: 28vw;
+      z-index: 1;
+      pointer-events: none;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--green-dark);
+      opacity: 0.78;
+      text-align: center;
+      line-height: 1.9;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+      padding: 1.8rem 2rem;
+      border-radius: 4px;
+      border: 1px solid rgba(196, 154, 60, 0.25);
+      border-top: 2px solid var(--gold);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      width: 30px; height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    .hero-h1 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+      font-weight: 700;
+      line-height: 1.06;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-h1 span {
+      display: block;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--green);
+      font-size: 0.8em;
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+      margin: 0.4rem 0 1.3rem;
+    }
+
+    .hero-divider .ln {
+      height: 1px; width: 48px;
+      background: linear-gradient(90deg, transparent, rgba(196,154,60,0.55));
+    }
+    .hero-divider .ln-r {
+      background: linear-gradient(90deg, rgba(196,154,60,0.55), transparent);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-mid);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-tagline {
+      font-size: 0.92rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-bottom: 2.4rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta-wrap { display: flex; justify-content: center; }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1rem 2.6rem;
+      border-radius: 2rem;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(78, 125, 94, 0.3);
+    }
+
+    .hero-cta:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(78, 125, 94, 0.38);
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header { text-align: center; margin-bottom: 2.4rem; }
+
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── SERVICES ── */
+    #leistungen {
+      background: var(--white);
+      padding: 4.5rem 5vw;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--cream);
+      border: 1px solid rgba(78, 125, 94, 0.1);
+      border-top: 3px solid var(--gold);
+      padding: 3.4rem 3rem;
+      transition: transform 0.25s, box-shadow 0.25s, border-top-color 0.25s;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 40px rgba(78, 125, 94, 0.14);
+      border-top-color: var(--green);
+    }
+
+    .service-num {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.9rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .service-mehr {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 1.6rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      transition: gap 0.2s, color 0.2s;
+    }
+
+    .service-card:hover .service-mehr {
+      gap: 0.8rem;
+      color: var(--green-dark);
+    }
+
+    /* ── DIVIDER ── */
+    .gold-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,154,60,0.4), transparent);
+    }
+
+    /* ── CONTACT ── */
+    #kontakt { background: var(--cream); padding: 4rem 5vw; }
+
+    .kontakt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .col-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.6rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(78, 125, 94, 0.2);
+    }
+
+    .kontakt-form { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.3rem; }
+
+    .form-group label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .form-group input, .form-group textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(78, 125, 94, 0.25);
+      padding: 0.5rem 0.1rem;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-bottom-color: var(--green);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit {
+      align-self: flex-start;
+      margin-top: 0.6rem;
+      background: var(--green);
+      color: white;
+      border: none;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.82rem 2.2rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .form-submit:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+    .map-wrapper {
+      border-radius: 4px;
+      overflow: hidden;
+      height: 300px;
+      border: 1px solid rgba(78, 125, 94, 0.15);
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    .map-wrapper iframe { width: 100%; height: 100%; border: none; display: block; }
+
+    .map-address {
+      margin-top: 1.1rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.8;
+      padding-left: 1rem;
+      border-left: 2px solid var(--gold);
+    }
+
+    .map-address strong {
+      display: block;
+      font-weight: 700;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green-deep);
+      color: rgba(255, 255, 255, 0.65);
+      padding: 1.6rem 5vw;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+
+    footer strong { color: rgba(255, 255, 255, 0.9); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero-bg-tree { height: 70%; opacity: 0.11; }
+      .hero-bg-quote { display: none; }
+    }
+
+    @media (max-width: 700px) {
+      .hero { padding: 3rem 6vw; }
+      .hero-content { max-width: 100%; }
+      .hero-h1 { font-size: 2.7rem; }
+      .kontakt-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .nav-links { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 2.2rem 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#start" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="17" cy="13" r="10" fill="#4e7d5e" opacity="0.85"/>
+        <rect x="15.5" y="21" width="3" height="10" rx="1.5" fill="#7a4a2e"/>
+      </svg>
+      <div class="nav-logo-text">
+        Jolanta Kowollik
+        <small>Naturheilpraxis</small>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#kontakt" class="nav-cta">Termin vereinbaren</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="start">
+
+    <img class="hero-bg-tree" src="tree.jpg" alt="" aria-hidden="true" />
+
+    <p class="hero-bg-quote">
+      „Man muss dem Körper Gutes tun, damit die Seele Lust hat, darin zu wohnen."<br/><br/>
+      — Winston Churchill
+    </p>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Naturheilpraxis · Heilpraktikerin</p>
+
+      <h1 class="hero-h1">
+        Jolanta Kowollik
+        <span>Naturheilpraxis</span>
+      </h1>
+
+      <div class="hero-divider">
+        <div class="ln"></div>
+        <svg width="36" height="20" viewBox="0 0 100 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M50,5 C76,5 95,18 95,26 C95,34 76,47 50,47 C24,47 5,34 5,26 C5,18 24,5 50,5Z"
+                fill="none" stroke="#c49a3c" stroke-width="2"/>
+          <line x1="5"  y1="26" x2="95" y2="26" stroke="#c49a3c" stroke-width="2"/>
+          <line x1="25" y1="26" x2="17" y2="16" stroke="#c49a3c" stroke-width="1.2"/>
+          <line x1="38" y1="26" x2="28" y2="11" stroke="#c49a3c" stroke-width="1.2"/>
+          <line x1="52" y1="26" x2="45" y2="8"  stroke="#c49a3c" stroke-width="1.2"/>
+          <line x1="66" y1="26" x2="62" y2="10" stroke="#c49a3c" stroke-width="1.2"/>
+          <line x1="25" y1="26" x2="17" y2="36" stroke="#c49a3c" stroke-width="1.2"/>
+          <line x1="38" y1="26" x2="28" y2="41" stroke="#c49a3c" stroke-width="1.2"/>
+          <line x1="52" y1="26" x2="45" y2="44" stroke="#c49a3c" stroke-width="1.2"/>
+          <line x1="66" y1="26" x2="62" y2="42" stroke="#c49a3c" stroke-width="1.2"/>
+        </svg>
+        <div class="ln ln-r"></div>
+      </div>
+
+      <p class="hero-subtitle">Heilpraktikerin</p>
+      <p class="hero-tagline">Praxis für Naturheilkunde und Ayurvedische Massagen</p>
+
+      <div class="hero-cta-wrap">
+        <a href="#kontakt" class="hero-cta">Termin vereinbaren</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+  <section id="leistungen">
+    <div class="section-header">
+      <p class="section-eyebrow">Leistungen</p>
+      <h2>Individuelle Behandlungen</h2>
+      <p class="section-sub">Mit ganzheitlichem Blick und naturheilkundlichen Methoden begleite ich Sie auf Ihrem Weg zur Gesundheit.</p>
+    </div>
+
+    <div class="services-grid">
+      <a class="service-card" href="sauerstofftherapie.html">
+        <p class="service-num">I</p>
+        <h3>Intravenöse Sauerstofftherapie</h3>
+        <p>Gezielte Zufuhr von Sauerstoff zur Revitalisierung — stärkt das Immunsystem und steigert die Vitalität.</p>
+        <span class="service-mehr">Mehr erfahren →</span>
+      </a>
+      <a class="service-card" href="mikronaehrstoffe.html">
+        <p class="service-num">II</p>
+        <h3>Prävention mit Mikronährstoffen</h3>
+        <p>Individuell abgestimmte Konzepte zur Stärkung der Abwehrkräfte und Förderung langfristiger Gesundheit.</p>
+        <span class="service-mehr">Mehr erfahren →</span>
+      </a>
+      <a class="service-card" href="infusionstherapie.html">
+        <p class="service-num">III</p>
+        <h3>Infusionstherapie</h3>
+        <p>Direkte Versorgung mit Vitaminen und Mineralien über die Vene — für schnelle, effektive Wirkung.</p>
+        <span class="service-mehr">Mehr erfahren →</span>
+      </a>
+      <a class="service-card" href="massagen.html">
+        <p class="service-num">IV</p>
+        <h3>Massagen</h3>
+        <p>Wohltuende Massagen zur Entspannung — lösen Verspannungen und unterstützen die natürliche Selbstheilung.</p>
+        <span class="service-mehr">Mehr erfahren →</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="gold-divider"></div>
+
+  <!-- CONTACT + MAP -->
+  <section id="kontakt">
+    <div class="section-header">
+      <p class="section-eyebrow">Kontakt</p>
+      <h2>Termin vereinbaren</h2>
+      <p class="section-sub">Ich freue mich auf Ihre Nachricht und berate Sie gerne persönlich.</p>
+    </div>
+
+    <div class="kontakt-grid">
+      <div>
+        <p class="col-heading">Schreiben Sie mir</p>
+        <form class="kontakt-form" action="mailto:praxis@kowollik.de" method="post" enctype="text/plain">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Ihr vollständiger Name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" placeholder="ihre@email.de" required />
+          </div>
+          <div class="form-group">
+            <label for="telefon">Telefon (optional)</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="+49 ..." />
+          </div>
+          <div class="form-group">
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" placeholder="Wie kann ich Ihnen helfen?" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Nachricht senden</button>
+        </form>
+      </div>
+
+      <div>
+        <p class="col-heading">Hier finden Sie mich</p>
+        <div class="map-wrapper">
+          <iframe
+            src="https://maps.google.com/maps?q=Von-Heyl-Stra%C3%9Fe%2C+67240+Bobenheim-Roxheim&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Standort Naturheilpraxis Jolanta Kowollik">
+          </iframe>
+        </div>
+        <p class="map-address">
+          <strong>Naturheilpraxis Jolanta Kowollik</strong>
+          Von-Heyl-Straße<br />67240 Bobenheim-Roxheim
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>Naturheilpraxis Jolanta Kowollik</strong>&nbsp; · &nbsp;
+    Heilpraktikerin&nbsp; · &nbsp;
+    67240 Bobenheim-Roxheim&nbsp; · &nbsp;
+    &copy; 2026
+  </footer>
+
+</body>
+</html>
