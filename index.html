@@ -95,13 +95,27 @@
       font-family: 'Inter', sans-serif !important;
       background: var(--green) !important;
       color: white !important;
-      padding: 0.48rem 1.4rem !important;
+      padding: 0.6rem 1.4rem !important;
       border-radius: 4px;
       letter-spacing: 0.02em !important;
       transition: background 0.2s, transform 0.15s !important;
     }
 
     .nav-cta:hover { background: var(--green-dark) !important; transform: translateY(-1px); }
+
+    .nav-hamburger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      padding: 0.5rem;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+    }
 
     /* ── HERO ── */
     .hero {
@@ -204,7 +218,8 @@
       font-size: 0.85rem;
       font-weight: 600;
       letter-spacing: 0.02em;
-      padding: 0.9rem 2.4rem;
+      padding: 1rem 2.6rem;
+      min-height: 48px;
       border-radius: 4px;
       transition: background 0.25s, transform 0.2s;
     }
@@ -395,7 +410,8 @@
       font-weight: 600;
       font-size: 0.85rem;
       letter-spacing: 0.02em;
-      padding: 0.82rem 2.2rem;
+      padding: 1rem 2.2rem;
+      min-height: 48px;
       border-radius: 4px;
       cursor: pointer;
       transition: background 0.25s, transform 0.2s;
@@ -458,7 +474,26 @@
     }
 
     @media (max-width: 560px) {
+      .nav-hamburger { display: flex; }
       .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 5vw;
+      }
+      .hero { padding: 2.5rem 5vw; }
+      .hero-h1 { font-size: 2.2rem; }
+      #leistungen { padding: 3rem 5vw; }
+      #kontakt { padding: 3rem 5vw; }
+      .section-header { margin-bottom: 1.8rem; }
+      .map-wrapper { height: 220px; }
+      .map-address { font-size: 0.88rem; }
       .services-grid { grid-template-columns: 1fr; }
       .service-card { padding: 2.2rem 1.8rem; }
     }
@@ -478,6 +513,7 @@
         <small>Naturheilpraxis</small>
       </div>
     </a>
+    <button class="nav-hamburger" aria-label="Menü" onclick="this.parentElement.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
     <ul class="nav-links">
       <li><a href="#leistungen">Leistungen</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
