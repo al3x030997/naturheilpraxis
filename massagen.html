@@ -102,7 +102,7 @@
     }
 
     .massage-types {
-      display: grid; grid-template-columns: repeat(2, 1fr);
+      display: grid; grid-template-columns: 1fr;
       gap: 1.2rem; margin-top: 1rem;
     }
     .massage-type {
@@ -115,9 +115,17 @@
       font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.35rem;
     }
     .massage-type span {
+      display: block;
       font-size: 0.88rem; font-weight: 400; letter-spacing: 0.02em;
       color: var(--text-muted); line-height: 1.65;
     }
+    .massage-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 0.5rem; padding-top: 0.5rem;
+      border-top: 1px solid rgba(78,125,94,0.12);
+      font-size: 0.82rem; color: var(--mint-dark); font-style: italic;
+    }
+    .massage-meta .price { font-weight: 600; font-style: normal; }
 
     .benefits-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem; }
     .benefits-list li {
@@ -188,7 +196,7 @@
     footer strong { color: rgba(255,255,255,0.92); }
     footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
     footer a:hover { color: white; }
-    @media (max-width: 700px) { .massage-types { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) { .massage-meta { flex-direction: column; align-items: flex-start; gap: 0.2rem; } }
     @media (max-width: 560px) {
       .nav-links { display: none; }
       .page-hero { padding: 3rem 6vw 2.5rem; }
@@ -226,77 +234,72 @@
     </p>
     <p class="page-hero-eyebrow">Leistung IV</p>
     <h1>Massagen</h1>
-    <p class="page-hero-sub">Eines der ältesten und wirksamsten Heilverfahren der Menschheit — gezielt eingesetzt zur Entspannung, Schmerzlinderung und Stärkung Ihrer natürlichen Selbstheilungskräfte.</p>
+    <p class="page-hero-sub">Klassische und ayurvedische Massagen — Entspannung, Schmerzlinderung und Aktivierung der Selbstheilung.</p>
   </section>
 
   <div class="content-wrap">
 
     <div class="content-section">
-      <p class="section-label">Über die Therapie</p>
-      <h2>Die heilende Kraft der Berührung</h2>
-      <p>Massagen gehören zu den ältesten und am besten erforschten Heilverfahren der Menschheit und sind ein fester Bestandteil der naturheilkundlichen Praxis. Durch systematische manuelle Techniken wie Streichen, Kneten, Drücken und Klopfen werden Muskulatur, Bindegewebe sowie das Nerven- und Lymphsystem positiv beeinflusst.</p>
-      <p>Neben der physischen Wirkung auf den Bewegungsapparat entfalten Massagen auch eine nachweisliche psychische Wirkung: Sie senken den Cortisolspiegel und fördern die Ausschüttung von Serotonin und Endorphinen — was zu tiefem Wohlbefinden und Entspannung führt.</p>
-    </div>
-
-    <div class="mint-divider"></div>
-
-    <div class="content-section" style="margin-top: 3.2rem;">
       <p class="section-label">Massage-Arten</p>
       <h2>Unsere Massageangebote</h2>
       <div class="massage-types">
         <div class="massage-type">
+          <strong>Abhyanga — Ayurvedische Ganzkörpermassage</strong>
+          <span>Dient der Harmonisierung von Körper, Geist und Seele, sowie zur Hautentschlackung und dem Abbau toxischer Rückstände.</span>
+          <div class="massage-meta">
+            <span>Ganzkörpermassage · 60/90 min</span>
+            <span class="price">65,-/85,- €</span>
+          </div>
+        </div>
+        <div class="massage-type">
+          <strong>Udvartana — Ayurvedische Pulvermassage</strong>
+          <span>Durch die stoffwechselanregende sowie lymphstimulierende Wirkung werden Gewichtsreduktion, Cellulitebehandlungen und Fastenkuren positiv unterstützt.</span>
+          <div class="massage-meta">
+            <span>Ganzkörpermassage · 60/90 min</span>
+            <span class="price">70,-/90,- €</span>
+          </div>
+        </div>
+        <div class="massage-type">
+          <strong>Shiroabhyanga — Ayurvedische Kopfmassage</strong>
+          <span>Kopf- und Gesichtsmassage bei Stress, Anspannungen, Schlaflosigkeit und beanspruchter Gesichtshaut.</span>
+          <div class="massage-meta">
+            <span>Kopfmassage · 30 min</span>
+            <span class="price">30,- €</span>
+          </div>
+        </div>
+        <div class="massage-type">
+          <strong>Hot Stone Massage</strong>
+          <span>Die Tiefenwärme der Basaltsteine lösen sanft Blockaden im Körper und bewirken eine vollständige Entspannung.</span>
+          <div class="massage-meta">
+            <span>Rückenmassage · 60/90 min</span>
+            <span class="price">60,-/80,- €</span>
+          </div>
+        </div>
+        <div class="massage-type">
+          <strong>Breuss Massage</strong>
+          <span>Sanfte, stark energetische Rückenmassage um seelische, energetische und körperliche Blockaden zu lösen sowie die Regulierung überbeanspruchter Wirbel zu unterstützen.</span>
+          <div class="massage-meta">
+            <span>Rückenmassage · 45 min</span>
+            <span class="price">50,- €</span>
+          </div>
+        </div>
+        <div class="massage-type">
           <strong>Klassische Massage</strong>
-          <span>Bewährte Techniken für Rücken, Nacken und Schultern — löst Verspannungen und verbessert die Durchblutung</span>
+          <span>Geht auf Verspannungen gezielt ein und fördert das Lösen von Blockaden sowie eine tiefe Entspannung.</span>
+          <div class="massage-meta">
+            <span>Rückenmassage · 30/60 min</span>
+            <span class="price">30,-/50,- €</span>
+          </div>
         </div>
         <div class="massage-type">
-          <strong>Tiefengewebsmassage</strong>
-          <span>Gezielte Arbeit an tiefer liegenden Muskelschichten und Faszien — bei chronischen Beschwerden besonders effektiv</span>
-        </div>
-        <div class="massage-type">
-          <strong>Ayurvedische Massage</strong>
-          <span>Traditionelle indische Massageform mit warmem Öl — harmonisiert Körper und Geist, fördert Tiefenentspannung</span>
-        </div>
-        <div class="massage-type">
-          <strong>Reflexzonenmassage</strong>
-          <span>Gezielte Reize auf Reflexzonen — unterstützt die Selbstregulation der entsprechenden Organe</span>
+          <strong>Schröpfmassage</strong>
+          <span>Verbessert die Durchblutung bestimmter Körperteile, lockert Verspannungen und dient der Entgiftung des Körpers sowie der Behandlung von Cellulite.</span>
+          <div class="massage-meta">
+            <span>Rückenmassage · 60/90 min</span>
+            <span class="price">60,-/80,- €</span>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="highlight-box">
-      <p>„Eine gute Massage ist mehr als nur Entspannung — sie ist eine Therapie, die Körper und Seele gleichzeitig erreicht und die natürlichen Heilkräfte des Organismus aktiviert."</p>
-    </div>
-
-    <div class="content-section">
-      <p class="section-label">Ablauf</p>
-      <h2>Wie läuft eine Behandlung ab?</h2>
-      <p>Zu Beginn erfassen wir in einem kurzen Vorgespräch Ihre aktuellen Beschwerden, Befindlichkeit und individuellen Behandlungsziele. So kann die Massage gezielt auf Ihre Situation abgestimmt werden.</p>
-      <p>Die mechanische Reizung des Gewebes verbessert die lokale Durchblutung, löst verklebte Faszien und fördert den Abtransport von Stoffwechselabbauprodukten über das Lymphsystem. Jede Sitzung dauert je nach Umfang zwischen 30 und 60 Minuten.</p>
-    </div>
-
-    <div class="content-section">
-      <p class="section-label">Wirkung & Indikationen</p>
-      <h2>Mögliche Wirkungen und Anwendungsgebiete</h2>
-      <ul class="benefits-list">
-        <li>Lösung von Muskelverhärtungen und Verspannungen im Rücken, Nacken und den Schultern</li>
-        <li>Linderung von Rückenschmerzen und Wirbelsäulenbeschwerden (z.B. LWS-Syndrom, HWS-Syndrom)</li>
-        <li>Förderung der Durchblutung und des Lymphflusses — Unterstützung der natürlichen Entgiftung</li>
-        <li>Nachweisliche Stressreduktion durch Senkung des Cortisolspiegels und Aktivierung des Parasympathikus</li>
-        <li>Begleitende Behandlung bei psychosomatischen Beschwerden, Schlafstörungen und Erschöpfungszuständen</li>
-        <li>Unterstützung der Mobilität und des Wohlbefindens im Alltag, insbesondere im höheren Lebensalter</li>
-      </ul>
-
-      <div class="contraindications">
-        <h4>Hinweis: Wann keine Massage?</h4>
-        <p>Bei akuten Entzündungen, Thrombosen, Hauterkrankungen im Behandlungsbereich oder Fieber wird von einer Massage abgeraten. Eine individuelle Rücksprache vor der ersten Behandlung ist selbstverständlich.</p>
-      </div>
-    </div>
-
-    <div class="content-section">
-      <p class="section-label">Für wen geeignet?</p>
-      <h2>Wer profitiert von dieser Therapie?</h2>
-      <p>Massagen eignen sich für alle Altersgruppen — besonders für Menschen ab 50, die unter Rücken- und Nackenbeschwerden, altersbedingter Muskelverspannung oder stressbedingten Beschwerden leiden.</p>
-      <p>Auch als präventive Regelbehandlung zur Erhaltung von Beweglichkeit und Wohlbefinden sind Massagen bestens geeignet. Gönnen Sie sich diese wirksame Form der Entspannung und Gesundheitspflege.</p>
     </div>
 
   </div>
