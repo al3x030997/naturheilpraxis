@@ -170,6 +170,19 @@
       line-height: 1.75;
     }
 
+    .indications-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 2rem; margin-top: 1.5rem;
+    }
+    .indication-group h4 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.05rem; font-weight: 700; color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+    .indication-group .benefits-list { margin-top: 0; }
+
+    @media (max-width: 700px) { .indications-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+
     /* DIVIDER */
     .mint-divider {
       height: 1px;
@@ -268,7 +281,7 @@
     </p>
     <p class="page-hero-eyebrow">Leistung I</p>
     <h1>Intravenöse Sauerstofftherapie</h1>
-    <p class="page-hero-sub">Oxyvenierung nach Dr. Regelsberger — sanfte Aktivierung der Selbstheilungskräfte über den Blutkreislauf.</p>
+    <p class="page-hero-sub">Oxyvenierung <strong>nach Dr. Regelsberger</strong> — sanfte Aktivierung der Selbstheilungskräfte über den Blutkreislauf.</p>
   </section>
 
   <!-- CONTENT -->
@@ -291,6 +304,76 @@
         <li>Stärkung des Immunsystems</li>
         <li>Steigerung der allgemeinen Vitalität</li>
       </ul>
+    </div>
+
+    <div class="mint-divider"></div>
+
+    <div class="content-section" style="margin-top: 3.2rem;">
+      <p class="section-label">Anwendungsgebiete</p>
+      <h2>Wann ist eine intravenöse Sauerstofftherapie sinnvoll?</h2>
+      <p>Therapeuten setzen die Intravenöse Sauerstofftherapie häufig bei Erkrankungen mit Einschränkungen der Durchblutung und chronischen Entzündungen ein.</p>
+
+      <div class="indications-grid">
+        <div class="indication-group">
+          <h4>Dazu gehören:</h4>
+          <ul class="benefits-list">
+            <li>Durchblutungsstörungen</li>
+            <li>Bluthochdruck</li>
+            <li>Durchblutungsstörungen in den Beinen</li>
+            <li>Diabetische Gefäßschäden</li>
+            <li>Gedächtnisstörungen</li>
+            <li>Demenz</li>
+            <li>Schlaganfallfolgen</li>
+            <li>Schlafstörungen</li>
+            <li>Hörsturz und Schwindel</li>
+            <li>Tinnitus</li>
+            <li>Erektionsstörungen</li>
+            <li>Nierenschwäche, Wassereinlagerungen</li>
+            <li>Herzenge</li>
+            <li>Herzinfarktfolgen</li>
+          </ul>
+        </div>
+        <div class="indication-group">
+          <h4>Autoimmunerkrankungen:</h4>
+          <ul class="benefits-list">
+            <li>Schuppenflechte</li>
+            <li>Rheumatoide Arthritis</li>
+            <li>Multiple Sklerose</li>
+          </ul>
+        </div>
+        <div class="indication-group">
+          <h4>Neurogene / neurodegenerative Erkrankungen:</h4>
+          <ul class="benefits-list">
+            <li>Autismus, ADHS</li>
+            <li>M. Parkinson</li>
+            <li>M. Alzheimer</li>
+            <li>Polyneuropathien</li>
+          </ul>
+        </div>
+        <div class="indication-group">
+          <h4>Chronisch entzündliche Erkrankungen:</h4>
+          <ul class="benefits-list">
+            <li>M. Crohn, Colitis ulcerosa</li>
+            <li>Reizdarm, Gastritis</li>
+            <li>Neurodermitis</li>
+            <li>Chronische Ekzeme</li>
+            <li>Chron. entzündliche Erkrankungen der Niere</li>
+          </ul>
+        </div>
+        <div class="indication-group">
+          <h4>Weitere Einsatzgebiete:</h4>
+          <ul class="benefits-list">
+            <li>Erschöpfungszustände</li>
+            <li>Makuladegeneration</li>
+            <li>Migräne</li>
+            <li>Allergien und Heuschnupfen</li>
+            <li>Asthma und COPD</li>
+            <li>Lebererkrankungen</li>
+            <li>Mitochondriale Funktionsstörungen</li>
+            <li>Begleitend in der Tumortherapie</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
   </div>
