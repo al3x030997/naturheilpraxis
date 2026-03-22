@@ -275,12 +275,11 @@
     }
 
     .service-card {
-      background: var(--bg);
+      background: var(--white);
       border: 1px solid var(--border);
-      border-left: 3px solid var(--green);
-      padding: 2.4rem 2.2rem;
-      transition: box-shadow 0.25s;
-      min-height: 320px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
       display: flex;
       flex-direction: column;
       text-decoration: none;
@@ -289,7 +288,32 @@
     }
 
     .service-card:hover {
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .service-img {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .service-card:hover .service-img img {
+      transform: scale(1.05);
+    }
+
+    .service-body {
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .service-num {
@@ -298,24 +322,24 @@
       font-weight: 500;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.9rem;
+      color: var(--green);
+      margin-bottom: 0.6rem;
     }
 
     .service-card h3 {
       font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 1.65rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       line-height: 1.25;
     }
 
     .service-card p {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 400;
       color: var(--text-muted);
-      line-height: 1.8;
+      line-height: 1.75;
       flex: 1;
     }
 
@@ -323,10 +347,10 @@
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      margin-top: 1.6rem;
+      margin-top: 1.4rem;
       font-family: 'Inter', sans-serif;
       font-size: 0.8rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.02em;
       color: var(--green);
       transition: gap 0.2s, color 0.2s;
@@ -495,7 +519,8 @@
       .map-wrapper { height: 220px; }
       .map-address { font-size: 0.88rem; }
       .services-grid { grid-template-columns: 1fr; }
-      .service-card { padding: 2.2rem 1.8rem; }
+      .service-img { height: 180px; }
+      .service-body { padding: 1.4rem 1.5rem; }
     }
   </style>
 </head>
@@ -577,28 +602,48 @@
 
     <div class="services-grid">
       <a class="service-card" href="sauerstofftherapie.html">
-        <p class="service-num">I</p>
-        <h3>Intravenöse Sauerstofftherapie</h3>
-        <p>Oxyvenierung <strong>nach Dr. Regelsberger</strong> — gezielte Zufuhr von Sauerstoff zur Revitalisierung, stärkt das Immunsystem und steigert die Vitalität.</p>
-        <span class="service-mehr">Mehr erfahren →</span>
+        <div class="service-img">
+          <img src="https://images.pexels.com/photos/1452701/pexels-photo-1452701.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Sauerstofftherapie" loading="lazy" />
+        </div>
+        <div class="service-body">
+          <p class="service-num">I</p>
+          <h3>Intravenöse Sauerstofftherapie</h3>
+          <p>Oxyvenierung <strong>nach Dr. Regelsberger</strong> — gezielte Zufuhr von Sauerstoff zur Revitalisierung, stärkt das Immunsystem und steigert die Vitalität.</p>
+          <span class="service-mehr">Mehr erfahren →</span>
+        </div>
       </a>
       <a class="service-card" href="mikronaehrstoffe.html">
-        <p class="service-num">II</p>
-        <h3>Prävention mit Mikronährstoffen</h3>
-        <p>Individuell abgestimmte Konzepte zur Stärkung der Abwehrkräfte und Förderung langfristiger Gesundheit.</p>
-        <span class="service-mehr">Mehr erfahren →</span>
+        <div class="service-img">
+          <img src="https://images.pexels.com/photos/952476/pexels-photo-952476.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Mikronährstoffe" loading="lazy" />
+        </div>
+        <div class="service-body">
+          <p class="service-num">II</p>
+          <h3>Prävention mit Mikronährstoffen</h3>
+          <p>Individuell abgestimmte Konzepte zur Stärkung der Abwehrkräfte und Förderung langfristiger Gesundheit.</p>
+          <span class="service-mehr">Mehr erfahren →</span>
+        </div>
       </a>
       <a class="service-card" href="infusionstherapie.html">
-        <p class="service-num">III</p>
-        <h3>Infusionstherapie</h3>
-        <p>Direkte Versorgung mit Vitaminen und Mineralien über die Vene — für schnelle, effektive Wirkung.</p>
-        <span class="service-mehr">Mehr erfahren →</span>
+        <div class="service-img">
+          <img src="https://images.pexels.com/photos/6129233/pexels-photo-6129233.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Infusionstherapie" loading="lazy" />
+        </div>
+        <div class="service-body">
+          <p class="service-num">III</p>
+          <h3>Infusionstherapie</h3>
+          <p>Direkte Versorgung mit Vitaminen und Mineralien über die Vene — für schnelle, effektive Wirkung.</p>
+          <span class="service-mehr">Mehr erfahren →</span>
+        </div>
       </a>
       <a class="service-card" href="massagen.html">
-        <p class="service-num">IV</p>
-        <h3>Massagen</h3>
-        <p>Wohltuende Massagen zur Entspannung — lösen Verspannungen und unterstützen die natürliche Selbstheilung.</p>
-        <span class="service-mehr">Mehr erfahren →</span>
+        <div class="service-img">
+          <img src="https://images.pexels.com/photos/7700/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Massagen" loading="lazy" />
+        </div>
+        <div class="service-body">
+          <p class="service-num">IV</p>
+          <h3>Massagen</h3>
+          <p>Wohltuende Massagen zur Entspannung — lösen Verspannungen und unterstützen die natürliche Selbstheilung.</p>
+          <span class="service-mehr">Mehr erfahren →</span>
+        </div>
       </a>
     </div>
   </section>
