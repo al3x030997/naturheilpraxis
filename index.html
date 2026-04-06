@@ -6,7 +6,7 @@
   <title>Naturheilpraxis Jolanta Kowollik · Bobenheim-Roxheim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,7 +27,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 400;
       font-size: 17px;
       line-height: 1.75;
@@ -171,9 +171,10 @@
     }
 
     .hero-h1 {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: clamp(2.8rem, 5.5vw, 5.2rem);
       font-weight: 700;
+      font-style: italic;
       line-height: 1.06;
       color: var(--text);
       letter-spacing: -0.01em;
@@ -243,9 +244,10 @@
     }
 
     h2 {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: clamp(1.7rem, 2.6vw, 2.3rem);
       font-weight: 700;
+      font-style: italic;
       color: var(--text);
       letter-spacing: -0.01em;
       margin-bottom: 0.6rem;
@@ -327,9 +329,10 @@
     }
 
     .service-card h3 {
-      font-family: 'Source Serif 4', Georgia, serif;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 1.5rem;
       font-weight: 700;
+      font-style: italic;
       color: var(--text);
       margin-bottom: 0.8rem;
       line-height: 1.25;
@@ -522,6 +525,20 @@
       .service-img { height: 180px; }
       .service-body { padding: 1.4rem 1.5rem; }
     }
+
+    /* Scroll-Animation */
+    .service-card {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .service-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .service-card { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -625,7 +642,7 @@
       </a>
       <a class="service-card" href="infusionstherapie.html">
         <div class="service-img">
-          <img src="https://images.pexels.com/photos/6129233/pexels-photo-6129233.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Infusionstherapie" loading="lazy" />
+          <img src="https://images.pexels.com/photos/5938242/pexels-photo-5938242.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Infusionstherapie" loading="lazy" />
         </div>
         <div class="service-body">
           <p class="service-num">III</p>
@@ -686,7 +703,7 @@
         <p class="col-heading">Hier finden Sie mich</p>
         <div class="map-wrapper">
           <iframe
-            src="https://maps.google.com/maps?q=Von-Heyl-Stra%C3%9Fe%2C+67240+Bobenheim-Roxheim&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=Von-Heyl-Stra%C3%9Fe+4b%2C+67240+Bobenheim-Roxheim&t=&z=15&ie=UTF8&iwloc=&output=embed"
             allowfullscreen loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="Standort Naturheilpraxis Jolanta Kowollik">
@@ -694,11 +711,28 @@
         </div>
         <p class="map-address">
           <strong>Naturheilpraxis Jolanta Kowollik</strong>
-          Von-Heyl-Straße<br />67240 Bobenheim-Roxheim
+          Von-Heyl-Straße 4b<br />67240 Bobenheim-Roxheim
         </p>
       </div>
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var cards = document.querySelectorAll('.service-card');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var idx = Array.prototype.indexOf.call(cards, entry.target);
+            entry.target.style.transitionDelay = (idx * 0.12) + 's';
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      cards.forEach(function(card) { observer.observe(card); });
+    });
+  </script>
 
   <!-- FOOTER -->
   <footer>
