@@ -104,6 +104,12 @@
 
     .nav-cta:hover { background: var(--accent-dark) !important; transform: translateY(-1px); }
 
+    .nav-mobile-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
     .nav-hamburger {
       display: none;
       font-size: 1.5rem;
@@ -276,6 +282,24 @@
       color: var(--green-dark);
       border-color: var(--green-dark);
     }
+
+    .hero-tel {
+      margin-top: 1.6rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hero-tel a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid var(--green);
+      padding-bottom: 1px;
+    }
+    .hero-tel a:hover { color: var(--green-dark); border-color: var(--green-dark); }
 
     /* ── SECTION HEADER ── */
     .section-header { text-align: center; margin-bottom: 4rem; }
@@ -521,22 +545,23 @@
     }
 
     .form-consent input[type="checkbox"] {
-      margin-top: 0.25rem;
-      width: 16px;
-      height: 16px;
-      accent-color: var(--green);
+      margin-top: 0.1rem;
+      width: 22px;
+      height: 22px;
+      accent-color: var(--accent);
       flex-shrink: 0;
       cursor: pointer;
     }
 
     .form-consent label {
       font-family: 'Inter', sans-serif;
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       font-weight: 400;
-      line-height: 1.55;
+      line-height: 1.6;
       letter-spacing: 0.01em;
       color: var(--text-mid);
       cursor: pointer;
+      padding: 0.4rem 0;
     }
 
     .form-consent label a {
@@ -649,31 +674,90 @@
     }
 
     footer strong { color: rgba(255, 255, 255, 0.9); }
-    footer a { color: rgba(255, 255, 255, 0.7); text-decoration: none; }
+    footer a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      padding: 0.4rem 0.2rem;
+      display: inline-block;
+    }
     footer a:hover { color: white; }
+
+    /* ── MOBILE STICKY CTA BAR ── */
+    .mobile-sticky-bar { display: none; }
+    .nav-tel { display: none; }
+
+    @media (max-width: 768px) {
+      .mobile-sticky-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        z-index: 90;
+        background: var(--card);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+        padding: 0.6rem 0.8rem calc(0.6rem + env(safe-area-inset-bottom));
+        gap: 0.6rem;
+      }
+      .mobile-sticky-bar a {
+        flex: 1;
+        display: flex; align-items: center; justify-content: center;
+        gap: 0.5rem;
+        min-height: 52px;
+        border-radius: 8px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+      }
+      .mobile-sticky-bar a:active { transform: scale(0.97); }
+      .mobile-sticky-bar .sb-call {
+        background: var(--green); color: #fff;
+        box-shadow: 0 2px 8px rgba(45, 94, 68, 0.25);
+      }
+      .mobile-sticky-bar .sb-call:hover { background: var(--green-dark); }
+      .mobile-sticky-bar .sb-cta {
+        background: var(--accent); color: #fff;
+        box-shadow: 0 2px 8px rgba(201, 123, 93, 0.25);
+      }
+      .mobile-sticky-bar .sb-cta:hover { background: var(--accent-dark); }
+
+      body { padding-bottom: 80px; }
+      body.bar-hidden { padding-bottom: 0; }
+      body.bar-hidden .mobile-sticky-bar { display: none; }
+
+      /* Nav phone icon (mobile only) */
+      .nav-tel {
+        display: inline-flex;
+        align-items: center; justify-content: center;
+        min-width: 44px; min-height: 44px;
+        color: var(--green);
+        text-decoration: none;
+        margin-right: 0.3rem;
+      }
+      .nav-tel:active { transform: scale(0.92); }
+    }
 
     /* ── RESPONSIVE ── */
     @media (min-width: 1200px) {
       body { font-size: 22px; }
     }
 
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-illustration { max-width: 280px; justify-self: center; order: -1; }
-    }
-
-    @media (max-width: 700px) {
-      .hero { padding: 5rem 6vw 5.5rem; }
+    @media (max-width: 1024px) {
+      .hero { min-height: auto; padding: 5rem 6vw 5rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-illustration { max-width: 240px; justify-self: center; }
       .hero-content { max-width: 100%; text-align: center; }
-      .hero-h1 { font-size: 3.2rem; }
+      .hero-h1 { font-size: clamp(2.8rem, 6vw, 4rem); }
       .hero-tagline { margin-left: auto; margin-right: auto; }
-      .hero-eyebrow { text-align: center; }
+      .hero-eyebrow { text-align: center; justify-content: center; }
       .hero-cta-wrap { justify-content: center; }
-      .kontakt-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .services-grid { gap: 2rem; }
+      .hero-tel { justify-content: center; }
+      .hero-bg-tree { display: none; }
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 768px) {
       .nav-hamburger { display: flex; }
       .nav-links { display: none; }
       .nav-links.open {
@@ -687,25 +771,28 @@
         border-bottom: 1px solid var(--border);
         padding: 1rem 5vw;
       }
-      .hero { padding: 4rem 5vw 4.5rem; }
-      .hero-h1 { font-size: 2.7rem; }
+      .hero { padding: 4rem 5vw 3.5rem; }
+      .hero-h1 { font-size: clamp(2.5rem, 8vw, 3.4rem); }
       .hero-tagline { font-size: 1.15rem; }
+      .hero-illustration { max-width: 200px; }
       #leistungen { padding: 4.5rem 5vw; }
       #kontakt { padding: 4.5rem 5vw; }
       .section-header { margin-bottom: 2.6rem; }
       .map-wrapper { min-height: 280px; }
       .map-placeholder-address { font-size: 1rem; }
+      .kontakt-grid { grid-template-columns: 1fr; gap: 3rem; }
       .services-grid { grid-template-columns: 1fr; gap: 1.8rem; }
       .service-illustration { height: 140px; }
       .service-body { padding: 1.8rem 1.8rem 2rem; }
       .service-title { font-size: 1.4rem; }
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 480px) {
       body { font-size: 18px; }
       .hero-h1 { font-size: 2.4rem; }
       .hero-cta-wrap { flex-direction: column; align-items: stretch; }
       .hero-cta, .hero-cta-secondary { text-align: center; }
+      .hero-tel { font-size: 0.9rem; flex-wrap: wrap; }
     }
 
     /* Scroll-Animation */
@@ -737,7 +824,12 @@
         <small>Naturheilpraxis</small>
       </div>
     </a>
-    <button class="nav-hamburger" aria-label="Menü" onclick="this.parentElement.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <div class="nav-mobile-actions">
+      <a href="tel:+4917645779584" class="nav-tel" aria-label="Anrufen">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <button class="nav-hamburger" aria-label="Menü" onclick="this.parentElement.parentElement.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    </div>
     <ul class="nav-links">
       <li><a href="#leistungen">Leistungen</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
@@ -762,10 +854,15 @@
           <a href="#kontakt" class="hero-cta">Termin vereinbaren&nbsp;→</a>
           <a href="#leistungen" class="hero-cta-secondary">Leistungen entdecken</a>
         </div>
+
+        <p class="hero-tel">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Direkt anrufen: <a href="tel:+4917645779584">+49 176 45779584</a>
+        </p>
       </div>
 
       <div class="hero-illustration" aria-hidden="true">
-        <img src="tree2.webp" alt="" class="hero-tree" />
+        <img src="tree2.webp" alt="" class="hero-tree" loading="eager" fetchpriority="high" width="640" height="640" />
       </div>
     </div>
   </section>
@@ -1005,6 +1102,26 @@
     <a href="datenschutz.html">Datenschutz</a>&nbsp; · &nbsp;
     &copy; 2026
   </footer>
+
+  <!-- STICKY MOBILE CTA BAR -->
+  <div class="mobile-sticky-bar">
+    <a class="sb-call" href="tel:+4917645779584" aria-label="Anrufen">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Anrufen
+    </a>
+    <a class="sb-cta" href="#kontakt">Termin&nbsp;→</a>
+  </div>
+
+  <script>
+    // Hide sticky bar when form fields are focused (iOS keyboard avoid)
+    document.addEventListener('DOMContentLoaded', function() {
+      var fields = document.querySelectorAll('.kontakt-form input, .kontakt-form textarea');
+      fields.forEach(function(el) {
+        el.addEventListener('focus', function() { document.body.classList.add('bar-hidden'); });
+        el.addEventListener('blur',  function() { document.body.classList.remove('bar-hidden'); });
+      });
+    });
+  </script>
 
 </body>
 </html>
