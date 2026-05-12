@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutzerklärung · Naturheilpraxis Jolanta Kowollik</title>
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:       #3d7a5f;
+      --green-dark:  #2d5e47;
+      --green-deep:  #1e3a2d;
+      --bg:          #fafaf8;
+      --bg-alt:      #f4f3f0;
+      --white:       #ffffff;
+      --text:        #1c1c1c;
+      --text-mid:    #4a4a4a;
+      --text-muted:  #717171;
+      --border:      #e2e0dc;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400; font-size: 17px; line-height: 1.75;
+      background: var(--bg); color: var(--text);
+    }
+    nav {
+      position: fixed; top: 0; width: 100%;
+      z-index: 100; height: 62px;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0 5vw; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+    .nav-logo-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em;
+      color: var(--text); line-height: 1.2;
+    }
+    .nav-logo-text small {
+      display: block; font-family: 'Inter', sans-serif;
+      font-size: 0.65rem; font-weight: 400; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-muted);
+    }
+    .nav-links { display: flex; align-items: center; gap: 1.8rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem; font-weight: 400; letter-spacing: 0.02em;
+      color: var(--text-mid); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta {
+      font-family: 'Inter', sans-serif !important;
+      background: var(--green) !important; color: white !important;
+      padding: 0.6rem 1.4rem !important; border-radius: 4px;
+      letter-spacing: 0.02em !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .nav-cta:hover { background: var(--green-dark) !important; transform: translateY(-1px); }
+    .nav-hamburger {
+      display: none; font-size: 1.5rem; background: none; border: none;
+      cursor: pointer; color: var(--text); padding: 0.5rem;
+      min-width: 44px; min-height: 44px; align-items: center; justify-content: center;
+    }
+
+    .page-hero {
+      margin-top: 62px;
+      background: var(--bg-alt);
+      padding: 4.5rem 8vw 3.5rem; position: relative; overflow: hidden;
+    }
+    .breadcrumb {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem; font-weight: 400; letter-spacing: 0.06em;
+      color: var(--text-muted); margin-bottom: 1.4rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--green); }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 700; font-style: italic; color: var(--text); line-height: 1.12;
+      margin-bottom: 0.6rem; max-width: 720px;
+    }
+
+    .content-wrap { max-width: 760px; margin: 0 auto; padding: 3.5rem 5vw 4.5rem; }
+    .legal h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      font-weight: 700; font-style: italic; color: var(--text);
+      margin: 2.2rem 0 0.9rem; line-height: 1.25;
+    }
+    .legal h2:first-child { margin-top: 0; }
+    .legal p, .legal li {
+      font-size: 1rem; font-weight: 400; letter-spacing: 0.02em;
+      color: var(--text-mid); line-height: 1.85;
+    }
+    .legal p { margin-bottom: 0.9rem; }
+    .legal ul { padding-left: 1.4rem; margin-bottom: 0.9rem; }
+    .legal li { margin-bottom: 0.4rem; }
+    .legal a { color: var(--green); text-decoration: underline; }
+    .legal a:hover { color: var(--green-dark); }
+    .legal strong { color: var(--text); font-weight: 600; }
+    .legal .placeholder {
+      display: inline-block;
+      background: #fff4d6; color: #7a5b00;
+      padding: 0.05rem 0.45rem; border-radius: 3px;
+      font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500;
+    }
+
+    footer {
+      background: var(--green-deep); color: rgba(255,255,255,0.7);
+      padding: 1.4rem 5vw; text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem; font-weight: 400; letter-spacing: 0.03em;
+    }
+    footer strong { color: rgba(255,255,255,0.92); }
+    footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    footer a:hover { color: white; }
+
+    @media (max-width: 560px) {
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; position: absolute; top: 62px; left: 0; width: 100%;
+        flex-direction: column; background: #fff;
+        border-bottom: 1px solid var(--border); padding: 1rem 5vw;
+      }
+      .page-hero h1 { font-size: 1.8rem; }
+      .page-hero { padding: 3rem 6vw 2.5rem; }
+      .content-wrap { padding: 2.5rem 5vw 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-text">
+        Jolanta Kowollik
+        <small>Naturheilpraxis</small>
+      </div>
+    </a>
+    <button class="nav-hamburger" aria-label="Menü" onclick="this.parentElement.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html#leistungen">Leistungen</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="index.html#kontakt" class="nav-cta">Termin vereinbaren</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <p class="breadcrumb">
+      <a href="index.html">Startseite</a>
+      <span>›</span>
+      Datenschutzerklärung
+    </p>
+    <h1>Datenschutzerklärung</h1>
+  </section>
+
+  <div class="content-wrap legal">
+
+    <h2>1. Verantwortlicher</h2>
+    <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
+    <p>
+      Jolanta Kowollik<br>
+      Naturheilpraxis Jolanta Kowollik<br>
+      Nonnenhof 1<br>
+      67240 Bobenheim-Roxheim<br>
+      Telefon: <span class="placeholder">TODO: Telefonnummer einfügen</span><br>
+      E-Mail: <span class="placeholder">TODO: E-Mail-Adresse einfügen</span>
+    </p>
+
+    <h2>2. Allgemeine Hinweise</h2>
+    <p>
+      Der Schutz Ihrer personenbezogenen Daten ist mir ein wichtiges Anliegen. Personenbezogene Daten sind Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen (Art. 4 Nr. 1 DSGVO). Im Folgenden informiere ich Sie darüber, welche Daten beim Besuch dieser Website verarbeitet werden und wie.
+    </p>
+
+    <h2>3. Hosting und Server-Logfiles</h2>
+    <p>
+      Diese Website wird bei Vercel Inc. (340 S Lemon Ave #4133, Walnut, CA 91789, USA) bzw. deren europäischen Servern gehostet. Beim Aufruf der Website werden durch den Hosting-Anbieter automatisch Informationen in sogenannten Server-Logfiles erfasst, die Ihr Browser übermittelt:
+    </p>
+    <ul>
+      <li>IP-Adresse des anfragenden Geräts</li>
+      <li>Datum und Uhrzeit der Anfrage</li>
+      <li>Aufgerufene URL und HTTP-Statuscode</li>
+      <li>Übertragene Datenmenge</li>
+      <li>Browsertyp und Betriebssystem</li>
+      <li>Referrer (zuvor besuchte Seite)</li>
+    </ul>
+    <p>
+      Diese Daten werden zur Sicherstellung eines reibungslosen Betriebs der Website, zur Sicherheit der informationstechnischen Systeme sowie zur Abwehr von Angriffen verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Eine Zusammenführung dieser Daten mit anderen Datenquellen oder eine personenbezogene Auswertung findet nicht statt. Die Daten werden nach kurzer Zeit gelöscht, soweit sie nicht zur Aufklärung eines konkreten Sicherheitsvorfalls benötigt werden.
+    </p>
+    <p>
+      Bei einer Übermittlung an Server in den USA besteht ein Angemessenheitsbeschluss der EU-Kommission (EU-US Data Privacy Framework); Vercel ist zertifiziert. Weitere Informationen entnehmen Sie der Datenschutzerklärung von Vercel: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">vercel.com/legal/privacy-policy</a>.
+    </p>
+
+    <h2>4. Kontaktaufnahme</h2>
+    <p>
+      Wenn Sie mich über das auf der Startseite bereitgestellte Kontaktformular (mailto-Link) oder direkt per E-Mail kontaktieren, werden Ihre Angaben (Name, E-Mail-Adresse, ggf. Telefonnummer, Inhalt der Nachricht) zur Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei mir gespeichert. Die Übermittlung erfolgt dabei über Ihren E-Mail-Anbieter; ich habe auf diesen Übertragungsweg keinen Einfluss.
+    </p>
+    <p>
+      Rechtsgrundlage für die Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage auf die Anbahnung eines Behandlungsverhältnisses gerichtet ist, im Übrigen Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Ihre Daten werden gelöscht, sobald sie für die Bearbeitung Ihrer Anfrage nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+    </p>
+
+    <h2>5. Schriftarten</h2>
+    <p>
+      Diese Website verwendet die Schriftarten „Cormorant Garamond" und „Inter". Die Schriftdateien werden lokal von meinem Server ausgeliefert. Es findet keine Verbindung zu Servern Dritter (insbesondere nicht zu Google Fonts) und keine Übertragung Ihrer IP-Adresse an Dritte zum Zweck der Schrifteinbindung statt.
+    </p>
+
+    <h2>6. Karten</h2>
+    <p>
+      Auf dieser Website ist kein Karten-Dienst eingebettet. Im Kontaktbereich finden Sie einen externen Link zu Google Maps. Erst wenn Sie diesen Link aktiv anklicken, werden Sie zu Google weitergeleitet und es werden Daten (u. a. Ihre IP-Adresse) an Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA übertragen. Die Datenverarbeitung durch Google liegt außerhalb meines Einflussbereichs; weitere Informationen entnehmen Sie der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.
+    </p>
+
+    <h2>7. Cookies und Tracking</h2>
+    <p>
+      Diese Website setzt keine Cookies und verwendet keine Analyse- oder Tracking-Werkzeuge.
+    </p>
+
+    <h2>8. Ihre Rechte als betroffene Person</h2>
+    <p>Nach der DSGVO stehen Ihnen folgende Rechte zu:</p>
+    <ul>
+      <li>Recht auf Auskunft über die zu Ihrer Person gespeicherten Daten (Art. 15 DSGVO)</li>
+      <li>Recht auf Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
+      <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+      <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+      <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+      <li>Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+      <li>Recht auf Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
+    </ul>
+    <p>
+      Zur Ausübung Ihrer Rechte genügt eine formlose Nachricht an die oben genannten Kontaktdaten.
+    </p>
+
+    <h2>9. Beschwerderecht bei der Aufsichtsbehörde</h2>
+    <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Für mich zuständig ist:</p>
+    <p>
+      Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz<br>
+      Hintere Bleiche 34<br>
+      55116 Mainz<br>
+      Telefon: +49 6131 8920-0<br>
+      E-Mail: <a href="mailto:poststelle@datenschutz.rlp.de">poststelle@datenschutz.rlp.de</a><br>
+      Web: <a href="https://www.datenschutz.rlp.de/" target="_blank" rel="noopener noreferrer">www.datenschutz.rlp.de</a>
+    </p>
+
+    <h2>10. Aktualität dieser Datenschutzerklärung</h2>
+    <p>
+      Diese Datenschutzerklärung hat den Stand Mai 2026. Durch die Weiterentwicklung der Website oder geänderte gesetzliche bzw. behördliche Vorgaben kann es notwendig werden, diese Datenschutzerklärung anzupassen.
+    </p>
+
+  </div>
+
+  <footer>
+    <strong>Naturheilpraxis Jolanta Kowollik</strong>&nbsp; · &nbsp;
+    Heilpraktikerin&nbsp; · &nbsp;
+    67240 Bobenheim-Roxheim&nbsp; · &nbsp;
+    <a href="index.html">Zurück zur Startseite</a>&nbsp; · &nbsp;
+    <a href="impressum.html">Impressum</a>&nbsp; · &nbsp;
+    &copy; 2026
+  </footer>
+
+</body>
+</html>
