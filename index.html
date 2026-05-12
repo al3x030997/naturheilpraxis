@@ -425,6 +425,48 @@
 
     .form-group textarea { resize: vertical; min-height: 110px; }
 
+    .hp-field {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    .form-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-top: 0.2rem;
+    }
+
+    .form-consent input[type="checkbox"] {
+      margin-top: 0.25rem;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--green);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .form-consent label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      line-height: 1.55;
+      letter-spacing: 0.01em;
+      color: var(--text-mid);
+      cursor: pointer;
+    }
+
+    .form-consent label a {
+      color: var(--green);
+      text-decoration: underline;
+    }
+
+    .form-consent label a:hover { color: var(--green-dark); }
+
     .form-submit {
       align-self: flex-start;
       margin-top: 0.6rem;
@@ -721,22 +763,30 @@
     <div class="kontakt-grid">
       <div>
         <p class="col-heading">Schreiben Sie mir</p>
-        <form class="kontakt-form" action="mailto:praxis@kowollik.de" method="post" enctype="text/plain">
+        <form class="kontakt-form" action="https://formsubmit.co/jolanta.kowollik@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Neue Anfrage über naturheilpraxis-bobenheim.de" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field" />
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Ihr vollständiger Name" required />
+            <input type="text" id="name" name="Name" placeholder="Ihr vollständiger Name" required />
           </div>
           <div class="form-group">
             <label for="email">E-Mail</label>
-            <input type="email" id="email" name="email" placeholder="ihre@email.de" required />
+            <input type="email" id="email" name="E-Mail" placeholder="ihre@email.de" required />
           </div>
           <div class="form-group">
             <label for="telefon">Telefon (optional)</label>
-            <input type="tel" id="telefon" name="telefon" placeholder="+49 ..." />
+            <input type="tel" id="telefon" name="Telefon" placeholder="+49 ..." />
           </div>
           <div class="form-group">
             <label for="nachricht">Nachricht</label>
-            <textarea id="nachricht" name="nachricht" placeholder="Wie kann ich Ihnen helfen?" required></textarea>
+            <textarea id="nachricht" name="Nachricht" placeholder="Wie kann ich Ihnen helfen?" required></textarea>
+          </div>
+          <div class="form-consent">
+            <input type="checkbox" id="dsgvo" name="DSGVO-Einwilligung" value="erteilt" required />
+            <label for="dsgvo">Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> zur Kenntnis genommen und willige der Verarbeitung meiner Angaben zur Beantwortung meiner Anfrage ein.</label>
           </div>
           <button type="submit" class="form-submit">Nachricht senden</button>
         </form>
