@@ -142,7 +142,7 @@
 
     .hero-illustration {
       width: 100%;
-      max-width: 380px;
+      max-width: 440px;
       justify-self: end;
     }
 
@@ -150,6 +150,16 @@
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    .hero-tree {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 560px;
+      object-fit: contain;
+      filter: saturate(0.8) contrast(1.05);
+      mix-blend-mode: multiply;
     }
 
     .hero-bg-tree {
@@ -189,20 +199,23 @@
 
     .hero-h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(3.4rem, 6.5vw, 6.2rem);
+      font-size: clamp(3rem, 5.5vw, 5.4rem);
       font-weight: 700;
       font-style: italic;
-      line-height: 1.02;
+      line-height: 1.06;
       color: var(--text);
-      letter-spacing: -0.015em;
-      margin-bottom: 1.8rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.4rem;
     }
 
     .hero-h1 span {
       display: block;
-      font-style: italic;
-      font-weight: 700;
+      font-style: normal;
+      font-weight: 400;
       color: var(--green);
+      font-size: 0.7em;
+      letter-spacing: 0.01em;
+      margin-top: 0.2em;
     }
 
     .hero-divider { display: none; }
@@ -308,8 +321,8 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 3rem;
-      max-width: 1100px;
+      gap: 2.5rem;
+      max-width: 1240px;
       margin: 0 auto;
     }
 
@@ -362,33 +375,23 @@
       flex: 1;
     }
 
-    .service-num {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
-    }
-
-    .service-benefit {
+    .service-title {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.85rem;
+      font-size: 1.55rem;
       font-weight: 700;
       font-style: italic;
       color: var(--text);
-      margin-bottom: 0.6rem;
-      line-height: 1.1;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
     }
 
-    .service-method {
+    .service-promise {
       font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--accent);
       margin-bottom: 1.6rem;
     }
 
@@ -697,7 +700,7 @@
       .services-grid { grid-template-columns: 1fr; gap: 1.8rem; }
       .service-illustration { height: 140px; }
       .service-body { padding: 1.8rem 1.8rem 2rem; }
-      .service-benefit { font-size: 1.6rem; }
+      .service-title { font-size: 1.4rem; }
     }
 
     @media (max-width: 420px) {
@@ -748,16 +751,14 @@
   <section class="hero" id="start">
     <div class="hero-inner">
       <div class="hero-content">
-        <p class="hero-eyebrow">Naturheilpraxis · Bobenheim-Roxheim</p>
+        <p class="hero-eyebrow">Naturheilpraxis · Heilpraktikerin</p>
 
         <h1 class="hero-h1">
-          Heilung beginnt<br/>
-          <span>in der Natur.</span>
+          Jolanta Kowollik
+          <span>Naturheilpraxis</span>
         </h1>
 
-        <p class="hero-tagline">
-          Jolanta Kowollik begleitet Sie auf dem Weg zu mehr Energie, Klarheit und innerer Ruhe — mit Heilpraktik, die Wissen und Sanftheit vereint.
-        </p>
+        <p class="hero-tagline">Praxis für Naturheilkunde und Ayurvedische Massagen</p>
 
         <div class="hero-cta-wrap">
           <a href="#kontakt" class="hero-cta">Termin vereinbaren&nbsp;→</a>
@@ -766,41 +767,7 @@
       </div>
 
       <div class="hero-illustration" aria-hidden="true">
-        <!-- Botanical line-art: organic stem with leaves + root suggestion -->
-        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Main stem -->
-          <path d="M200 480 C 200 380, 195 300, 210 220 C 220 165, 200 110, 215 30"
-                stroke="var(--green)" stroke-width="2.2" />
-          <!-- Left leaf (top) -->
-          <path d="M215 90 C 175 70, 145 80, 130 110 C 145 130, 180 130, 215 110 Z"
-                stroke="var(--green)" stroke-width="1.8" />
-          <path d="M215 100 C 195 105, 175 110, 155 115"
-                stroke="var(--green)" stroke-width="1" />
-          <!-- Right leaf (upper-mid) -->
-          <path d="M212 160 C 260 145, 295 165, 305 200 C 280 215, 240 205, 212 180 Z"
-                stroke="var(--accent)" stroke-width="1.8" fill="rgba(201,123,93,0.06)" />
-          <path d="M218 175 C 245 175, 270 185, 295 195"
-                stroke="var(--accent)" stroke-width="1" />
-          <!-- Left leaf (mid) -->
-          <path d="M205 250 C 155 245, 115 265, 110 305 C 145 320, 185 305, 210 275 Z"
-                stroke="var(--green)" stroke-width="1.8" />
-          <path d="M208 280 C 180 290, 150 300, 125 310"
-                stroke="var(--green)" stroke-width="1" />
-          <!-- Right leaf (lower-mid) -->
-          <path d="M202 350 C 245 345, 280 365, 285 400 C 255 410, 220 395, 200 370 Z"
-                stroke="var(--green)" stroke-width="1.8" />
-          <path d="M205 375 C 230 385, 255 395, 275 400"
-                stroke="var(--green)" stroke-width="1" />
-          <!-- Small bud at top -->
-          <circle cx="216" cy="28" r="6" stroke="var(--accent)" stroke-width="1.6" fill="rgba(201,123,93,0.1)" />
-          <!-- Roots at bottom -->
-          <path d="M200 480 C 170 478, 150 472, 130 460" stroke="var(--green)" stroke-width="1.2" />
-          <path d="M200 482 C 220 480, 245 472, 270 460" stroke="var(--green)" stroke-width="1.2" />
-          <path d="M200 482 C 190 487, 178 490, 165 488" stroke="var(--green)" stroke-width="1" />
-          <path d="M200 482 C 210 488, 222 491, 235 489" stroke="var(--green)" stroke-width="1" />
-          <!-- Ground line subtle -->
-          <path d="M60 460 Q 200 470 340 460" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 5" />
-        </svg>
+        <img src="tree2.jpg" alt="" class="hero-tree" />
       </div>
     </div>
   </section>
@@ -840,9 +807,8 @@
           </svg>
         </div>
         <div class="service-body">
-          <p class="service-num">Leistung I</p>
-          <h3 class="service-benefit">Mehr Energie<br/>&amp; Vitalität</h3>
-          <p class="service-method">Intravenöse Sauerstofftherapie</p>
+          <h3 class="service-title">Intravenöse Sauerstofftherapie</h3>
+          <p class="service-promise">Mehr Energie &amp; Vitalität</p>
           <ul class="service-perks">
             <li>Stärkt das Immunsystem</li>
             <li>Aktiviert die Selbstheilung</li>
@@ -879,9 +845,8 @@
           </svg>
         </div>
         <div class="service-body">
-          <p class="service-num">Leistung II</p>
-          <h3 class="service-benefit">Vorbeugung<br/>beginnt jetzt</h3>
-          <p class="service-method">Prävention mit Mikronährstoffen</p>
+          <h3 class="service-title">Prävention mit Mikronährstoffen</h3>
+          <p class="service-promise">Vorbeugung beginnt jetzt</p>
           <ul class="service-perks">
             <li>Individuell auf Sie abgestimmt</li>
             <li>Stärkt die Abwehrkräfte</li>
@@ -912,9 +877,8 @@
           </svg>
         </div>
         <div class="service-body">
-          <p class="service-num">Leistung III</p>
-          <h3 class="service-benefit">Versorgung<br/>von innen</h3>
-          <p class="service-method">Vitamin- &amp; Mineral-Infusionen</p>
+          <h3 class="service-title">Vitamin- &amp; Mineral-Infusionen</h3>
+          <p class="service-promise">Versorgung von innen</p>
           <ul class="service-perks">
             <li>Direkt über die Vene</li>
             <li>Hohe Bioverfügbarkeit</li>
@@ -938,9 +902,8 @@
           </svg>
         </div>
         <div class="service-body">
-          <p class="service-num">Leistung IV</p>
-          <h3 class="service-benefit">Loslassen,<br/>was beschwert</h3>
-          <p class="service-method">Ayurvedische &amp; klassische Massagen</p>
+          <h3 class="service-title">Ayurvedische &amp; klassische Massagen</h3>
+          <p class="service-promise">Loslassen, was beschwert</p>
           <ul class="service-perks">
             <li>Löst Verspannungen</li>
             <li>Aktiviert Selbstheilung</li>
