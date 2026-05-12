@@ -10,16 +10,19 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green:       #3d7a5f;
-      --green-dark:  #2d5e47;
-      --green-deep:  #1e3a2d;
-      --bg:          #fafaf8;
-      --bg-alt:      #f4f3f0;
+      --green:       #2d5e44;
+      --green-dark:  #1e4530;
+      --green-deep:  #0f2a1e;
+      --accent:      #c97b5d;
+      --accent-dark: #a55f47;
+      --bg:          #f3e9d7;
+      --bg-alt:      #ede1cc;
+      --card:        #faf3e7;
       --white:       #ffffff;
-      --text:        #1c1c1c;
-      --text-mid:    #4a4a4a;
-      --text-muted:  #717171;
-      --border:      #e2e0dc;
+      --text:        #2a2520;
+      --text-mid:    #5a4f44;
+      --text-muted:  #847066;
+      --border:      #d9caa8;
     }
 
     html { scroll-behavior: smooth; }
@@ -27,8 +30,8 @@
     body {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 400;
-      font-size: 19px;
-      line-height: 1.75;
+      font-size: 20px;
+      line-height: 1.7;
       background: var(--bg);
       color: var(--text);
     }
@@ -39,7 +42,7 @@
       top: 0; width: 100%;
       z-index: 100;
       height: 64px;
-      background: #fff;
+      background: var(--card);
       border-bottom: 1px solid var(--border);
       padding: 0 5vw;
       display: flex;
@@ -91,15 +94,15 @@
 
     .nav-cta {
       font-family: 'Inter', sans-serif !important;
-      background: var(--green) !important;
+      background: var(--accent) !important;
       color: white !important;
-      padding: 0.6rem 1.4rem !important;
-      border-radius: 4px;
+      padding: 0.7rem 1.5rem !important;
+      border-radius: 6px;
       letter-spacing: 0.02em !important;
       transition: background 0.2s, transform 0.15s !important;
     }
 
-    .nav-cta:hover { background: var(--green-dark) !important; transform: translateY(-1px); }
+    .nav-cta:hover { background: var(--accent-dark) !important; transform: translateY(-1px); }
 
     .nav-hamburger {
       display: none;
@@ -124,10 +127,33 @@
       overflow: hidden;
       display: flex;
       align-items: center;
-      padding: 5.5rem 8vw 6rem;
+      padding: 7rem 8vw 7.5rem;
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-illustration {
+      width: 100%;
+      max-width: 380px;
+      justify-self: end;
+    }
+
+    .hero-illustration svg {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .hero-bg-tree {
+      display: none;
       position: absolute;
       right: 6vw;
       top: 50%;
@@ -146,90 +172,102 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 560px;
-      text-align: center;
+      max-width: 620px;
     }
 
     .hero-eyebrow {
       font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 1.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
     }
 
-    .hero-eyebrow::before, .hero-eyebrow::after {
-      display: none;
-    }
+    .hero-eyebrow::before, .hero-eyebrow::after { display: none; }
 
     .hero-h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(3rem, 5.5vw, 5.4rem);
+      font-size: clamp(3.4rem, 6.5vw, 6.2rem);
       font-weight: 700;
       font-style: italic;
-      line-height: 1.06;
+      line-height: 1.02;
       color: var(--text);
-      letter-spacing: -0.01em;
-      margin-bottom: 1.3rem;
+      letter-spacing: -0.015em;
+      margin-bottom: 1.8rem;
     }
 
     .hero-h1 span {
       display: block;
-      font-style: normal;
-      font-weight: 400;
+      font-style: italic;
+      font-weight: 700;
       color: var(--green);
-      font-size: 0.8em;
     }
 
     .hero-divider { display: none; }
-
-    .hero-subtitle {
-      font-size: clamp(1.05rem, 1.7vw, 1.35rem);
-      font-weight: 400;
-      font-style: normal;
-      color: var(--text-mid);
-      margin-bottom: 0.4rem;
-    }
+    .hero-subtitle { display: none; }
+    .hero-bg-quote { display: none; }
 
     .hero-tagline {
-      font-size: 1rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.3rem;
       font-weight: 400;
-      letter-spacing: 0.04em;
-      color: var(--text-muted);
-      margin-bottom: 2.8rem;
-      line-height: 1.7;
+      letter-spacing: 0.01em;
+      color: var(--text-mid);
+      margin-bottom: 2.6rem;
+      line-height: 1.6;
+      max-width: 540px;
     }
 
-    .hero-cta-wrap { display: flex; justify-content: center; }
+    .hero-cta-wrap {
+      display: flex;
+      gap: 1.4rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
     .hero-cta {
       display: inline-block;
       font-family: 'Inter', sans-serif;
-      background: var(--green);
-      color: white;
+      background: var(--accent);
+      color: #fff;
       text-decoration: none;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       font-weight: 600;
       letter-spacing: 0.02em;
-      padding: 1.1rem 2.8rem;
-      min-height: 48px;
-      border-radius: 4px;
-      transition: background 0.25s, transform 0.2s;
+      padding: 1.15rem 2.2rem;
+      min-height: 52px;
+      border-radius: 6px;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 14px rgba(201, 123, 93, 0.25);
     }
 
     .hero-cta:hover {
-      background: var(--green-dark);
-      transform: translateY(-1px);
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201, 123, 93, 0.32);
+    }
+
+    .hero-cta-secondary {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--green);
+      text-decoration: none;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--green);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hero-cta-secondary:hover {
+      color: var(--green-dark);
+      border-color: var(--green-dark);
     }
 
     /* ── SECTION HEADER ── */
-    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
 
     .section-eyebrow {
       font-family: 'Inter', sans-serif;
@@ -262,24 +300,25 @@
 
     /* ── SERVICES ── */
     #leistungen {
-      background: var(--white);
-      padding: 5.5rem 5vw;
+      background: var(--bg);
+      padding: 7rem 5vw;
+      position: relative;
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2.5rem;
-      max-width: 1040px;
+      gap: 3rem;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
     .service-card {
-      background: var(--white);
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 18px;
       overflow: hidden;
-      transition: box-shadow 0.3s, transform 0.3s;
+      transition: box-shadow 0.35s, transform 0.35s, border-color 0.35s;
       display: flex;
       flex-direction: column;
       text-decoration: none;
@@ -288,29 +327,36 @@
     }
 
     .service-card:hover {
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(45, 94, 68, 0.12);
+      transform: translateY(-6px);
+      border-color: var(--green);
     }
 
-    .service-img {
+    .service-illustration {
       width: 100%;
-      height: 200px;
-      overflow: hidden;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: linear-gradient(180deg, rgba(45,94,68,0.04) 0%, rgba(201,123,93,0.04) 100%);
+      border-bottom: 1px solid var(--border);
     }
 
-    .service-img img {
-      width: 100%;
+    .service-illustration svg {
+      width: auto;
       height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
+      max-width: 180px;
+      display: block;
+      transition: transform 0.5s ease;
     }
 
-    .service-card:hover .service-img img {
-      transform: scale(1.05);
+    .service-card:hover .service-illustration svg {
+      transform: scale(1.06) rotate(-1deg);
     }
 
     .service-body {
-      padding: 2.2rem 2.4rem;
+      padding: 2.4rem 2.4rem 2.6rem;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -318,43 +364,75 @@
 
     .service-num {
       font-family: 'Inter', sans-serif;
-      font-size: 0.76rem;
-      font-weight: 500;
-      letter-spacing: 0.3em;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 0.7rem;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
     }
 
-    .service-card h3 {
+    .service-benefit {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.65rem;
+      font-size: 1.85rem;
       font-weight: 700;
       font-style: italic;
       color: var(--text);
-      margin-bottom: 0.9rem;
-      line-height: 1.25;
+      margin-bottom: 0.6rem;
+      line-height: 1.1;
     }
 
-    .service-card p {
-      font-size: 1.02rem;
-      font-weight: 400;
+    .service-method {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--text-muted);
-      line-height: 1.75;
+      margin-bottom: 1.6rem;
+    }
+
+    .service-perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
       flex: 1;
+    }
+
+    .service-perks li {
+      position: relative;
+      padding-left: 1.4rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    .service-perks li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
     }
 
     .service-mehr {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      margin-top: 1.6rem;
       font-family: 'Inter', sans-serif;
       font-size: 0.88rem;
       font-weight: 600;
       letter-spacing: 0.02em;
       color: var(--green);
       transition: gap 0.2s, color 0.2s;
+      margin-top: auto;
     }
 
     .service-card:hover .service-mehr {
@@ -369,7 +447,7 @@
     }
 
     /* ── CONTACT ── */
-    #kontakt { background: var(--bg); padding: 5.5rem 5vw; }
+    #kontakt { background: var(--bg-alt); padding: 6.5rem 5vw; }
 
     .kontakt-grid {
       display: grid;
@@ -406,16 +484,16 @@
     }
 
     .form-group input, .form-group textarea {
-      background: transparent;
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 0.75rem 0.95rem;
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
       font-weight: 400;
       color: var(--text);
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, background 0.2s;
       width: 100%;
     }
 
@@ -470,7 +548,7 @@
     .form-submit {
       align-self: flex-start;
       margin-top: 0.6rem;
-      background: var(--green);
+      background: var(--accent);
       color: white;
       border: none;
       font-family: 'Inter', sans-serif;
@@ -479,12 +557,13 @@
       letter-spacing: 0.02em;
       padding: 1.1rem 2.4rem;
       min-height: 48px;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background 0.25s, transform 0.2s;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 14px rgba(201, 123, 93, 0.22);
     }
 
-    .form-submit:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .form-submit:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(201, 123, 93, 0.3); }
 
     .map-wrapper {
       border-radius: 4px;
@@ -531,16 +610,16 @@
       font-size: 0.9rem;
       font-weight: 600;
       letter-spacing: 0.02em;
-      background: var(--green);
+      background: var(--accent);
       color: #fff;
       text-decoration: none;
       padding: 0.8rem 1.6rem;
-      border-radius: 4px;
+      border-radius: 6px;
       transition: background 0.2s, transform 0.15s;
     }
 
     .map-placeholder-btn:hover {
-      background: var(--green-dark);
+      background: var(--accent-dark);
       transform: translateY(-1px);
     }
 
@@ -574,19 +653,23 @@
 
     /* ── RESPONSIVE ── */
     @media (min-width: 1200px) {
-      body { font-size: 20px; }
+      body { font-size: 22px; }
     }
 
-    @media (max-width: 860px) {
-      .hero-bg-tree { height: 60%; opacity: 0.08; }
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-illustration { max-width: 280px; justify-self: center; order: -1; }
     }
 
     @media (max-width: 700px) {
-      .hero { padding: 4rem 6vw 4.5rem; }
-      .hero-content { max-width: 100%; }
-      .hero-h1 { font-size: 2.9rem; }
-      .hero-bg-tree { display: none; }
+      .hero { padding: 5rem 6vw 5.5rem; }
+      .hero-content { max-width: 100%; text-align: center; }
+      .hero-h1 { font-size: 3.2rem; }
+      .hero-tagline { margin-left: auto; margin-right: auto; }
+      .hero-eyebrow { text-align: center; }
+      .hero-cta-wrap { justify-content: center; }
       .kontakt-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .services-grid { gap: 2rem; }
     }
 
     @media (max-width: 560px) {
@@ -599,24 +682,29 @@
         left: 0;
         width: 100%;
         flex-direction: column;
-        background: #fff;
+        background: var(--card);
         border-bottom: 1px solid var(--border);
         padding: 1rem 5vw;
       }
-      .hero { padding: 3rem 5vw 3.5rem; }
-      .hero-h1 { font-size: 2.4rem; }
-      #leistungen { padding: 3.5rem 5vw; }
-      #kontakt { padding: 3.5rem 5vw; }
-      .section-header { margin-bottom: 2.2rem; }
+      .hero { padding: 4rem 5vw 4.5rem; }
+      .hero-h1 { font-size: 2.7rem; }
+      .hero-tagline { font-size: 1.15rem; }
+      #leistungen { padding: 4.5rem 5vw; }
+      #kontakt { padding: 4.5rem 5vw; }
+      .section-header { margin-bottom: 2.6rem; }
       .map-wrapper { min-height: 280px; }
       .map-placeholder-address { font-size: 1rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      .service-img { height: 200px; }
-      .service-body { padding: 1.6rem 1.7rem; }
+      .services-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+      .service-illustration { height: 140px; }
+      .service-body { padding: 1.8rem 1.8rem 2rem; }
+      .service-benefit { font-size: 1.6rem; }
     }
 
     @media (max-width: 420px) {
       body { font-size: 18px; }
+      .hero-h1 { font-size: 2.4rem; }
+      .hero-cta-wrap { flex-direction: column; align-items: stretch; }
+      .hero-cta, .hero-cta-secondary { text-align: center; }
     }
 
     /* Scroll-Animation */
@@ -658,48 +746,63 @@
 
   <!-- HERO -->
   <section class="hero" id="start">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Naturheilpraxis · Bobenheim-Roxheim</p>
 
-    <img class="hero-bg-tree" src="tree2.jpg" alt="" aria-hidden="true" />
+        <h1 class="hero-h1">
+          Heilung beginnt<br/>
+          <span>in der Natur.</span>
+        </h1>
 
-    <p class="hero-bg-quote">
-      „Man muss dem Körper Gutes tun, damit die Seele Lust hat, darin zu wohnen."<br/><br/>
-      — Winston Churchill
-    </p>
+        <p class="hero-tagline">
+          Jolanta Kowollik begleitet Sie auf dem Weg zu mehr Energie, Klarheit und innerer Ruhe — mit Heilpraktik, die Wissen und Sanftheit vereint.
+        </p>
 
-    <div class="hero-content">
-      <p class="hero-eyebrow">Naturheilpraxis · Heilpraktikerin</p>
-
-      <h1 class="hero-h1">
-        Jolanta Kowollik
-        <span>Naturheilpraxis</span>
-      </h1>
-
-      <div class="hero-divider">
-        <div class="ln"></div>
-        <svg width="36" height="20" viewBox="0 0 100 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M50,5 C76,5 95,18 95,26 C95,34 76,47 50,47 C24,47 5,34 5,26 C5,18 24,5 50,5Z"
-                fill="none" stroke="#c49a3c" stroke-width="2"/>
-          <line x1="5"  y1="26" x2="95" y2="26" stroke="#c49a3c" stroke-width="2"/>
-          <line x1="25" y1="26" x2="17" y2="16" stroke="#c49a3c" stroke-width="1.2"/>
-          <line x1="38" y1="26" x2="28" y2="11" stroke="#c49a3c" stroke-width="1.2"/>
-          <line x1="52" y1="26" x2="45" y2="8"  stroke="#c49a3c" stroke-width="1.2"/>
-          <line x1="66" y1="26" x2="62" y2="10" stroke="#c49a3c" stroke-width="1.2"/>
-          <line x1="25" y1="26" x2="17" y2="36" stroke="#c49a3c" stroke-width="1.2"/>
-          <line x1="38" y1="26" x2="28" y2="41" stroke="#c49a3c" stroke-width="1.2"/>
-          <line x1="52" y1="26" x2="45" y2="44" stroke="#c49a3c" stroke-width="1.2"/>
-          <line x1="66" y1="26" x2="62" y2="42" stroke="#c49a3c" stroke-width="1.2"/>
-        </svg>
-        <div class="ln ln-r"></div>
+        <div class="hero-cta-wrap">
+          <a href="#kontakt" class="hero-cta">Termin vereinbaren&nbsp;→</a>
+          <a href="#leistungen" class="hero-cta-secondary">Leistungen entdecken</a>
+        </div>
       </div>
 
-      <p class="hero-subtitle">Heilpraktikerin</p>
-      <p class="hero-tagline">Praxis für Naturheilkunde und Ayurvedische Massagen</p>
-
-      <div class="hero-cta-wrap">
-        <a href="#kontakt" class="hero-cta">Termin vereinbaren</a>
+      <div class="hero-illustration" aria-hidden="true">
+        <!-- Botanical line-art: organic stem with leaves + root suggestion -->
+        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Main stem -->
+          <path d="M200 480 C 200 380, 195 300, 210 220 C 220 165, 200 110, 215 30"
+                stroke="var(--green)" stroke-width="2.2" />
+          <!-- Left leaf (top) -->
+          <path d="M215 90 C 175 70, 145 80, 130 110 C 145 130, 180 130, 215 110 Z"
+                stroke="var(--green)" stroke-width="1.8" />
+          <path d="M215 100 C 195 105, 175 110, 155 115"
+                stroke="var(--green)" stroke-width="1" />
+          <!-- Right leaf (upper-mid) -->
+          <path d="M212 160 C 260 145, 295 165, 305 200 C 280 215, 240 205, 212 180 Z"
+                stroke="var(--accent)" stroke-width="1.8" fill="rgba(201,123,93,0.06)" />
+          <path d="M218 175 C 245 175, 270 185, 295 195"
+                stroke="var(--accent)" stroke-width="1" />
+          <!-- Left leaf (mid) -->
+          <path d="M205 250 C 155 245, 115 265, 110 305 C 145 320, 185 305, 210 275 Z"
+                stroke="var(--green)" stroke-width="1.8" />
+          <path d="M208 280 C 180 290, 150 300, 125 310"
+                stroke="var(--green)" stroke-width="1" />
+          <!-- Right leaf (lower-mid) -->
+          <path d="M202 350 C 245 345, 280 365, 285 400 C 255 410, 220 395, 200 370 Z"
+                stroke="var(--green)" stroke-width="1.8" />
+          <path d="M205 375 C 230 385, 255 395, 275 400"
+                stroke="var(--green)" stroke-width="1" />
+          <!-- Small bud at top -->
+          <circle cx="216" cy="28" r="6" stroke="var(--accent)" stroke-width="1.6" fill="rgba(201,123,93,0.1)" />
+          <!-- Roots at bottom -->
+          <path d="M200 480 C 170 478, 150 472, 130 460" stroke="var(--green)" stroke-width="1.2" />
+          <path d="M200 482 C 220 480, 245 472, 270 460" stroke="var(--green)" stroke-width="1.2" />
+          <path d="M200 482 C 190 487, 178 490, 165 488" stroke="var(--green)" stroke-width="1" />
+          <path d="M200 482 C 210 488, 222 491, 235 489" stroke="var(--green)" stroke-width="1" />
+          <!-- Ground line subtle -->
+          <path d="M60 460 Q 200 470 340 460" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 5" />
+        </svg>
       </div>
     </div>
-
   </section>
 
   <!-- SERVICES -->
@@ -711,50 +814,142 @@
     </div>
 
     <div class="services-grid">
+
       <a class="service-card" href="sauerstofftherapie.html">
-        <div class="service-img">
-          <img src="https://images.pexels.com/photos/1452701/pexels-photo-1452701.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Sauerstofftherapie" loading="lazy" />
+        <div class="service-illustration">
+          <svg viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <!-- Trachea-stem (leaf-like) -->
+            <path d="M80 22 L80 70" stroke="var(--green)" stroke-width="2" />
+            <!-- Left lung-leaf -->
+            <path d="M78 70 C 50 70, 30 82, 28 108 C 28 122, 42 128, 60 124 C 72 121, 78 110, 78 95 Z"
+                  stroke="var(--green)" stroke-width="1.8" />
+            <!-- Right lung-leaf -->
+            <path d="M82 70 C 110 70, 130 82, 132 108 C 132 122, 118 128, 100 124 C 88 121, 82 110, 82 95 Z"
+                  stroke="var(--green)" stroke-width="1.8" />
+            <!-- Left leaf veins -->
+            <path d="M78 80 C 65 90, 52 100, 45 113" stroke="var(--green)" stroke-width="1" />
+            <path d="M65 88 L 55 95" stroke="var(--green)" stroke-width="0.8" />
+            <path d="M58 100 L 50 105" stroke="var(--green)" stroke-width="0.8" />
+            <!-- Right leaf veins -->
+            <path d="M82 80 C 95 90, 108 100, 115 113" stroke="var(--green)" stroke-width="1" />
+            <path d="M95 88 L 105 95" stroke="var(--green)" stroke-width="0.8" />
+            <path d="M102 100 L 110 105" stroke="var(--green)" stroke-width="0.8" />
+            <!-- Top: small leaf flourish -->
+            <path d="M80 22 C 72 18, 68 12, 70 6" stroke="var(--accent)" stroke-width="1.4" />
+            <ellipse cx="68" cy="8" rx="5" ry="3" stroke="var(--accent)" stroke-width="1.4" fill="rgba(201,123,93,0.1)" />
+          </svg>
         </div>
         <div class="service-body">
-          <p class="service-num">I</p>
-          <h3>Intravenöse Sauerstofftherapie</h3>
-          <p>Oxyvenierung <strong>nach Dr. Regelsberger</strong> — gezielte Zufuhr von Sauerstoff zur Revitalisierung, stärkt das Immunsystem und steigert die Vitalität.</p>
-          <span class="service-mehr">Mehr erfahren →</span>
+          <p class="service-num">Leistung I</p>
+          <h3 class="service-benefit">Mehr Energie<br/>&amp; Vitalität</h3>
+          <p class="service-method">Intravenöse Sauerstofftherapie</p>
+          <ul class="service-perks">
+            <li>Stärkt das Immunsystem</li>
+            <li>Aktiviert die Selbstheilung</li>
+            <li>Verbessert die Durchblutung</li>
+          </ul>
+          <span class="service-mehr">Mehr erfahren&nbsp;→</span>
         </div>
       </a>
+
       <a class="service-card" href="mikronaehrstoffe.html">
-        <div class="service-img">
-          <img src="mikronaehrstoffe.webp" alt="Mikronährstoffe" loading="lazy" style="object-position: center center;" />
+        <div class="service-illustration">
+          <svg viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <!-- Soil line -->
+            <path d="M30 110 Q 80 116 130 110" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 4" />
+            <!-- Sprout stem -->
+            <path d="M80 110 C 80 92, 82 76, 80 60 C 78 48, 82 36, 80 22"
+                  stroke="var(--green)" stroke-width="2" />
+            <!-- Left leaf -->
+            <path d="M80 56 C 60 48, 45 50, 38 64 C 50 72, 70 70, 80 62 Z"
+                  stroke="var(--green)" stroke-width="1.8" />
+            <path d="M80 60 C 70 60, 58 62, 48 64" stroke="var(--green)" stroke-width="0.9" />
+            <!-- Right leaf -->
+            <path d="M80 42 C 100 34, 115 36, 122 50 C 110 58, 90 56, 80 48 Z"
+                  stroke="var(--green)" stroke-width="1.8" />
+            <path d="M80 46 C 90 46, 102 48, 112 50" stroke="var(--green)" stroke-width="0.9" />
+            <!-- Top berry/seed -->
+            <circle cx="80" cy="18" r="7" stroke="var(--accent)" stroke-width="1.8" fill="rgba(201,123,93,0.12)" />
+            <path d="M80 11 C 82 8, 86 6, 90 7" stroke="var(--accent)" stroke-width="1.2" />
+            <!-- Roots -->
+            <path d="M80 110 C 72 116, 60 120, 50 118" stroke="var(--green)" stroke-width="1.1" />
+            <path d="M80 110 C 88 116, 100 120, 110 118" stroke="var(--green)" stroke-width="1.1" />
+            <path d="M80 112 C 75 122, 68 128, 60 128" stroke="var(--green)" stroke-width="0.9" />
+            <path d="M80 112 C 85 122, 92 128, 100 128" stroke="var(--green)" stroke-width="0.9" />
+          </svg>
         </div>
         <div class="service-body">
-          <p class="service-num">II</p>
-          <h3>Prävention mit Mikronährstoffen</h3>
-          <p>Individuell abgestimmte Konzepte zur Stärkung der Abwehrkräfte und Förderung langfristiger Gesundheit.</p>
-          <span class="service-mehr">Mehr erfahren →</span>
+          <p class="service-num">Leistung II</p>
+          <h3 class="service-benefit">Vorbeugung<br/>beginnt jetzt</h3>
+          <p class="service-method">Prävention mit Mikronährstoffen</p>
+          <ul class="service-perks">
+            <li>Individuell auf Sie abgestimmt</li>
+            <li>Stärkt die Abwehrkräfte</li>
+            <li>Fördert langfristige Gesundheit</li>
+          </ul>
+          <span class="service-mehr">Mehr erfahren&nbsp;→</span>
         </div>
       </a>
+
       <a class="service-card" href="infusionstherapie.html">
-        <div class="service-img">
-          <img src="https://images.pexels.com/photos/5938242/pexels-photo-5938242.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Infusionstherapie" loading="lazy" />
+        <div class="service-illustration">
+          <svg viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <!-- Large droplet outline -->
+            <path d="M80 18 C 60 50, 42 70, 42 92 C 42 116, 60 128, 80 128 C 100 128, 118 116, 118 92 C 118 70, 100 50, 80 18 Z"
+                  stroke="var(--green)" stroke-width="2" />
+            <!-- Inner leaf -->
+            <path d="M80 60 C 65 70, 58 82, 60 95 C 62 105, 72 110, 80 108 C 88 110, 98 105, 100 95 C 102 82, 95 70, 80 60 Z"
+                  stroke="var(--accent)" stroke-width="1.6" fill="rgba(201,123,93,0.08)" />
+            <!-- Leaf central vein -->
+            <path d="M80 64 L 80 105" stroke="var(--accent)" stroke-width="1" />
+            <!-- Leaf side veins -->
+            <path d="M80 76 L 70 82" stroke="var(--accent)" stroke-width="0.8" />
+            <path d="M80 76 L 90 82" stroke="var(--accent)" stroke-width="0.8" />
+            <path d="M80 90 L 68 95" stroke="var(--accent)" stroke-width="0.8" />
+            <path d="M80 90 L 92 95" stroke="var(--accent)" stroke-width="0.8" />
+            <!-- Highlight on droplet -->
+            <path d="M68 80 C 64 88, 64 96, 68 102" stroke="var(--green)" stroke-width="0.9" />
+          </svg>
         </div>
         <div class="service-body">
-          <p class="service-num">III</p>
-          <h3>Infusionstherapie</h3>
-          <p>Direkte Versorgung mit Vitaminen und Mineralien über die Vene — für schnelle, effektive Wirkung.</p>
-          <span class="service-mehr">Mehr erfahren →</span>
+          <p class="service-num">Leistung III</p>
+          <h3 class="service-benefit">Versorgung<br/>von innen</h3>
+          <p class="service-method">Vitamin- &amp; Mineral-Infusionen</p>
+          <ul class="service-perks">
+            <li>Direkt über die Vene</li>
+            <li>Hohe Bioverfügbarkeit</li>
+            <li>Bei nachgewiesenem Mangel</li>
+          </ul>
+          <span class="service-mehr">Mehr erfahren&nbsp;→</span>
         </div>
       </a>
+
       <a class="service-card" href="massagen.html">
-        <div class="service-img">
-          <img src="https://images.pexels.com/photos/7700/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Massagen" loading="lazy" />
+        <div class="service-illustration">
+          <svg viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <!-- Flowing waves suggesting movement/hand -->
+            <path d="M20 50 Q 50 30, 80 50 T 140 50" stroke="var(--green)" stroke-width="2" />
+            <path d="M20 70 Q 50 50, 80 70 T 140 70" stroke="var(--green)" stroke-width="1.8" />
+            <path d="M20 90 Q 50 70, 80 90 T 140 90" stroke="var(--accent)" stroke-width="1.8" />
+            <path d="M20 110 Q 50 90, 80 110 T 140 110" stroke="var(--green)" stroke-width="1.6" opacity="0.7" />
+            <!-- Small leaf accents along the waves -->
+            <ellipse cx="55" cy="40" rx="5" ry="3" stroke="var(--green)" stroke-width="1.2" fill="rgba(45,94,68,0.08)" transform="rotate(-25 55 40)" />
+            <ellipse cx="105" cy="60" rx="5" ry="3" stroke="var(--accent)" stroke-width="1.2" fill="rgba(201,123,93,0.1)" transform="rotate(15 105 60)" />
+          </svg>
         </div>
         <div class="service-body">
-          <p class="service-num">IV</p>
-          <h3>Massagen</h3>
-          <p>Wohltuende Massagen zur Entspannung — lösen Verspannungen und unterstützen die natürliche Selbstheilung.</p>
-          <span class="service-mehr">Mehr erfahren →</span>
+          <p class="service-num">Leistung IV</p>
+          <h3 class="service-benefit">Loslassen,<br/>was beschwert</h3>
+          <p class="service-method">Ayurvedische &amp; klassische Massagen</p>
+          <ul class="service-perks">
+            <li>Löst Verspannungen</li>
+            <li>Aktiviert Selbstheilung</li>
+            <li>Für Körper und Geist</li>
+          </ul>
+          <span class="service-mehr">Mehr erfahren&nbsp;→</span>
         </div>
       </a>
+
     </div>
   </section>
 
