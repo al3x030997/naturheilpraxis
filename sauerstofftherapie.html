@@ -168,6 +168,22 @@
       line-height: 1.75;
     }
 
+    .section-image {
+      width: 100%;
+      overflow: hidden;
+      background: var(--bg-alt);
+    }
+    .section-image img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+    @media (max-width: 700px) {
+      .section-image img { height: 240px; }
+    }
+
     .indications-grid {
       display: grid; grid-template-columns: repeat(2, 1fr);
       gap: 2.4rem; margin-top: 1.8rem;
@@ -287,6 +303,13 @@
     <h1>Intravenöse Sauerstofftherapie</h1>
     <p class="page-hero-sub">Oxyvenierung <strong>nach Dr. Regelsberger</strong> — sanfte Aktivierung der Selbstheilungskräfte über den Blutkreislauf.</p>
   </section>
+
+  <!-- SECTION-IMAGE -->
+  <div class="section-image">
+    <img src="https://images.pexels.com/photos/7938842/pexels-photo-7938842.jpeg?auto=compress&cs=tinysrgb&w=1600&h=600&fit=crop"
+         alt="Lächelndes älteres Paar an einem sonnigen Strand"
+         loading="lazy" />
+  </div>
 
   <!-- CONTENT -->
   <div class="content-wrap">
