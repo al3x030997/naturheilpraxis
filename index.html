@@ -133,7 +133,7 @@
       overflow: hidden;
       display: flex;
       align-items: center;
-      padding: 7rem 8vw 7.5rem;
+      padding: 7rem 8vw 4rem;
     }
 
     .hero-inner {
@@ -302,7 +302,7 @@
     .hero-tel a:hover { color: var(--green-dark); border-color: var(--green-dark); }
 
     /* ── SECTION HEADER ── */
-    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
 
     .section-eyebrow {
       font-family: 'Inter', sans-serif;
@@ -316,28 +316,49 @@
 
     h2 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(1.85rem, 2.6vw, 2.45rem);
+      font-size: clamp(2.6rem, 4.8vw, 4.2rem);
       font-weight: 700;
       font-style: italic;
       color: var(--text);
-      letter-spacing: -0.01em;
-      margin-bottom: 0.7rem;
+      letter-spacing: -0.015em;
+      line-height: 1.05;
+      margin-bottom: 1rem;
     }
 
     .section-sub {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 400;
       font-style: italic;
       color: var(--text-muted);
-      max-width: 560px;
+      max-width: 600px;
       margin: 0 auto;
+      line-height: 1.65;
     }
 
     /* ── SERVICES ── */
     #leistungen {
       background: var(--bg);
-      padding: 7rem 5vw;
+      padding: 3rem 5vw 7rem;
       position: relative;
+    }
+
+    /* ── SECTION DIVIDER (Hero → Leistungen) ── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.4rem;
+      max-width: 360px;
+      margin: 0 auto 3.5rem;
+    }
+    .section-divider .div-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent);
+    }
+    .section-divider svg {
+      flex-shrink: 0;
+      opacity: 0.85;
     }
 
     .services-grid {
@@ -771,13 +792,18 @@
         border-bottom: 1px solid var(--border);
         padding: 1rem 5vw;
       }
-      .hero { padding: 4rem 5vw 3.5rem; }
+      .hero { padding: 4rem 5vw 2rem; }
       .hero-h1 { font-size: clamp(2.5rem, 8vw, 3.4rem); }
       .hero-tagline { font-size: 1.15rem; }
       .hero-illustration { max-width: 200px; }
-      #leistungen { padding: 4.5rem 5vw; }
+      /* Hero-CTAs auf Mobile weg — Sticky-Bar unten übernimmt */
+      .hero-cta { display: none; }
+      .hero-tel { display: none; }
+      .hero-cta-wrap { margin-top: 0; }
+      #leistungen { padding: 2rem 5vw 4.5rem; }
       #kontakt { padding: 4.5rem 5vw; }
-      .section-header { margin-bottom: 2.6rem; }
+      .section-header { margin-bottom: 2.2rem; }
+      .section-divider { margin: 0 auto 2.2rem; max-width: 240px; }
       .map-wrapper { min-height: 280px; }
       .map-placeholder-address { font-size: 1rem; }
       .kontakt-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -785,6 +811,7 @@
       .service-illustration { height: 140px; }
       .service-body { padding: 1.8rem 1.8rem 2rem; }
       .service-title { font-size: 1.4rem; }
+      h2 { font-size: clamp(2.2rem, 9vw, 3rem); }
     }
 
     @media (max-width: 480px) {
@@ -869,6 +896,23 @@
 
   <!-- SERVICES -->
   <section id="leistungen">
+
+    <div class="section-divider" aria-hidden="true">
+      <span class="div-line"></span>
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Stylized leaf -->
+        <path d="M16 4 C 9 11, 9 22, 16 28 C 23 22, 23 11, 16 4 Z" stroke="var(--green)" stroke-width="1.4" fill="rgba(45,94,68,0.06)" />
+        <path d="M16 7 L 16 26" stroke="var(--green)" stroke-width="1" />
+        <path d="M16 13 L 12 16" stroke="var(--green)" stroke-width="0.9" />
+        <path d="M16 13 L 20 16" stroke="var(--green)" stroke-width="0.9" />
+        <path d="M16 19 L 11.5 22" stroke="var(--green)" stroke-width="0.9" />
+        <path d="M16 19 L 20.5 22" stroke="var(--green)" stroke-width="0.9" />
+        <!-- Small terracotta accent dot -->
+        <circle cx="16" cy="5.5" r="1.4" fill="var(--accent)" stroke="none" />
+      </svg>
+      <span class="div-line"></span>
+    </div>
+
     <div class="section-header">
       <p class="section-eyebrow">Leistungen</p>
       <h2>Individuelle Behandlungen</h2>
